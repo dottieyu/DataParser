@@ -1,83 +1,83 @@
 public class ElectionResult {
-    private String votes_dem;
-    private String votes_gpp;
-    private String total_votes;
-    private String per_dem;
-    private String per_gop;
-    private String diff;
-    private String per_point_diff;
+    private int votes_dem;
+    private int votes_gpp;
+    private int total_votes;
+    private double per_dem;
+    private double per_gop;
+    private int diff;
+    private double per_point_diff;
     private String state_abbr;
     private String county_name;
-    private String combined_files;
+    private int combined_fips;
     private String all_data;
 
-    public ElectionResult(String votes_dem, String votes_gpp, String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_files, String all_data) {
-        this.votes_dem = votes_dem;
-        this.votes_gpp = votes_gpp;
-        this.total_votes = total_votes;
-        this.per_dem = per_dem;
-        this.per_gop = per_gop;
-        this.diff = diff;
-        this.per_point_diff = per_point_diff;
+    public ElectionResult(String votes_dem, String votes_gpp, String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_fips, String all_data) {
+        this.votes_dem = (int) Double.parseDouble(votes_dem);
+        this.votes_gpp = (int) Double.parseDouble(votes_gpp);
+        this.total_votes = (int) Double.parseDouble(total_votes);
+        this.per_dem = Double.parseDouble(per_dem);
+        this.per_gop = Double.parseDouble(per_gop);
+        this.diff = Integer.parseInt(diff.substring(1, diff.length()-1));
+        this.per_point_diff = Double.parseDouble(per_point_diff.substring(0, diff.length()-2));
         this.state_abbr = state_abbr;
         this.county_name = county_name;
-        this.combined_files = combined_files;
+        this.combined_fips = Integer.parseInt(combined_fips);
         this.all_data = all_data;
     }
 
-    public String getVotes_dem() {
+    public int getVotes_dem() {
         return votes_dem;
     }
 
-    public void setVotes_dem(String votes_dem) {
+    public void setVotes_dem(int votes_dem) {
         this.votes_dem = votes_dem;
     }
 
-    public String getVotes_gpp() {
+    public int getVotes_gpp() {
         return votes_gpp;
     }
 
-    public void setVotes_gpp(String votes_gpp) {
+    public void setVotes_gpp(int votes_gpp) {
         this.votes_gpp = votes_gpp;
     }
 
-    public String getTotal_votes() {
+    public int getTotal_votes() {
         return total_votes;
     }
 
-    public void setTotal_votes(String total_votes) {
+    public void setTotal_votes(int total_votes) {
         this.total_votes = total_votes;
     }
 
-    public String getPer_dem() {
+    public double getPer_dem() {
         return per_dem;
     }
 
-    public void setPer_dem(String per_dem) {
+    public void setPer_dem(double per_dem) {
         this.per_dem = per_dem;
     }
 
-    public String getPer_gop() {
+    public double getPer_gop() {
         return per_gop;
     }
 
-    public void setPer_gop(String per_gop) {
+    public void setPer_gop(double per_gop) {
         this.per_gop = per_gop;
     }
 
-    public String getDiff() {
+    public int getDiff() {
         return diff;
     }
 
-    public void setDiff(String diff) {
+    public void setDiff(int diff) {
         this.diff = diff;
     }
 
-    public String getPer_point_diff() {
+    public double getPer_point_diff() {
         return per_point_diff;
     }
 
-    public void setPer_point_diff(String per_point_diff) {
+    public void setPer_point_diff(double per_point_diff) {
         this.per_point_diff = per_point_diff;
     }
 
@@ -97,12 +97,20 @@ public class ElectionResult {
         this.county_name = county_name;
     }
 
-    public String getCombined_files() {
-        return combined_files;
+    public int getCombined_fips() {
+        return combined_fips;
     }
 
-    public void setCombined_files(String combined_files) {
-        this.combined_files = combined_files;
+    public void setCombined_fips(int combined_fips) {
+        this.combined_fips = combined_fips;
+    }
+
+    public String getAll_data() {
+        return all_data;
+    }
+
+    public void setAll_data(String all_data) {
+        this.all_data = all_data;
     }
 
     @Override
