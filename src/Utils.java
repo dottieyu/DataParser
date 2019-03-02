@@ -21,16 +21,17 @@ public class Utils {
     }
 
     public static ArrayList<ElectionResult> parse2016PresidentialResults(String s) {
-        ArrayList<ElectionResult> list = new ArrayList<>();
+        ArrayList<ElectionResult> results = new ArrayList<>();
 
-        String[] presidentialResults = s.split("\n");
+        String[] rows = s.split("\n");
 
-        for (String result : presidentialResults) {
-            String[] a = result.split(",");
+        for (String row : rows) {
+            String[] a = row.split(",");
 
-            list.add(new ElectionResult(a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8] , a[9], a[10], result));
+            results.add(new ElectionResult(a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8] , a[9], a[10], row));
         }
 
-        return list;
+        results.remove(0);
+        return results;
     }
 }
