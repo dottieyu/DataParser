@@ -33,7 +33,7 @@ public class Utils {
             if (a.length == 11) {
                 results.add(new ElectionResult(a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10]));
             } else {
-                System.out.println("Error @ row: " + i);
+                System.out.println("Error @ row: " + i + "; a.length = " + a.length);
             }
         }
         return results;
@@ -56,14 +56,17 @@ public class Utils {
         int index = s.indexOf("\"");
         if (index > 0) {
             indexes.add(index);
-            indexes.add(s.indexOf(",", index));
             indexes.add(s.indexOf("\"", index+1));
+            for (int i = indexes.get(0); i < indexes.get(1); i++) {
+                if (s.substring(i, i+1).equals(",")) {
+                    indexes.add(i);
+                }
+            }
         }
 
         for (int i = 0; i < s.length(); i++) {
             if (s.substring(i, i+1).equals("%")) {
                 indexes.add(i);
-                break;
             }
         }
 
