@@ -1,6 +1,6 @@
 public class ElectionResult {
     private int votes_dem;
-    private int votes_gpp;
+    private int votes_gop;
     private int total_votes;
     private double per_dem;
     private double per_gop;
@@ -13,7 +13,7 @@ public class ElectionResult {
 
     public ElectionResult(String votes_dem, String votes_gpp, String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_fips, String all_data) {
         this.votes_dem = (int) Double.parseDouble(votes_dem);
-        this.votes_gpp = (int) Double.parseDouble(votes_gpp);
+        this.votes_gop = (int) Double.parseDouble(votes_gpp);
         this.total_votes = (int) Double.parseDouble(total_votes);
         this.per_dem = Double.parseDouble(per_dem);
         this.per_gop = Double.parseDouble(per_gop);
@@ -33,12 +33,12 @@ public class ElectionResult {
         this.votes_dem = votes_dem;
     }
 
-    public int getVotes_gpp() {
-        return votes_gpp;
+    public int getVotes_gop() {
+        return votes_gop;
     }
 
-    public void setVotes_gpp(int votes_gpp) {
-        this.votes_gpp = votes_gpp;
+    public void setVotes_gop(int votes_gpp) {
+        this.votes_gop = votes_gpp;
     }
 
     public int getTotal_votes() {
