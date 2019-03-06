@@ -30,7 +30,7 @@ public class Utils {
             rows[i] = stripUnwantedChars(rows[i]);
             String[] a = rows[i].split(",");
 
-            if (a.length == 10) {
+            if (a.length == 11) {
                 results.add(new ElectionResult(a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9], a[10]));
             } else {
                 System.out.println("Error @ row: " + i);
@@ -40,26 +40,30 @@ public class Utils {
     }
 
     private static String stripUnwantedChars(String s) {
-        String output = "";
         ArrayList<Integer> indexes = findUnwantedIndexes(s);
+        String output = s.substring(0, indexes.get(0));
 
         for (int i = 0; i < indexes.size() - 1; i++) {
             output += s.substring(indexes.get(i)+1, indexes.get(i+1));
         }
+        output+=s.substring(indexes.get(indexes.size()-1) + 1);
         return output;
     }
 
     private static ArrayList<Integer> findUnwantedIndexes(String s) {
         ArrayList<Integer> indexes = new ArrayList<>();
 
-        int index = s.indexOf("\'");
-        indexes.add(index);
-        indexes.add(s.indexOf(",", index));
-        indexes.add(s.indexOf("\"", index));
+        int index = s.indexOf("\"");
+        if (index > 0) {
+            indexes.add(index);
+            indexes.add(s.indexOf(",", index));
+            indexes.add(s.indexOf("\"", index+1));
+        }
 
         for (int i = 0; i < s.length(); i++) {
             if (s.substring(i, i+1).equals("%")) {
                 indexes.add(i);
+                break;
             }
         }
 
