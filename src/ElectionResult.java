@@ -99,7 +99,7 @@ public class ElectionResult {
         this.all_data = all_data;
     }
 
-    public ElectionResult(String votes_dem, String votes_gop, String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_fips, String all_data) {
+    public ElectionResult(String votes_dem, String votes_gop, String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_fips) {
         this.votes_dem = votes_dem;
         this.votes_gop = votes_gop;
         this.total_votes = total_votes;
