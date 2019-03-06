@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static java.util.Collections.sort;
 
 public class Utils {
     public static String readFileAsString(String filepath) {
@@ -50,9 +51,19 @@ public class Utils {
 
     private static ArrayList<Integer> findUnwantedIndexes(String s) {
         ArrayList<Integer> indexes = new ArrayList<>();
+
+        int index = s.indexOf("\'");
+        indexes.add(index);
+        indexes.add(s.indexOf(",", index));
+        indexes.add(s.indexOf("\"", index));
+
         for (int i = 0; i < s.length(); i++) {
-            // will loop through and add all indexes with quotes, comma within quotes, or percent sign
+            if (s.substring(i, i+1).equals("%")) {
+                indexes.add(i);
+            }
         }
+
+        sort(indexes);
         return indexes;
     }
 }
