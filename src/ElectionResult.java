@@ -1,111 +1,40 @@
 public class ElectionResult {
-    private String votes_dem;
-    private String votes_gop;
-    private String total_votes;
-    private String per_dem;
-    private String per_gop;
-    private String diff;
-    private String per_point_diff;
-    private String state_abbr;
-    private String county_name;
-    private String combined_fips;
+    private double demVotes;
+    private double gopVotes;
+    private double totalVotes;
 
-    public String getVotes_dem() {
-        return votes_dem;
+    public double getDemVotes() {
+        return demVotes;
     }
 
-    public void setVotes_dem(String votes_dem) {
-        this.votes_dem = votes_dem;
+    public void setDemVotes(double demVotes) {
+        this.demVotes = demVotes;
     }
 
-    public String getVotes_gop() {
-        return votes_gop;
+    public double getGopVotes() {
+        return gopVotes;
     }
 
-    public void setVotes_gop(String votes_gop) {
-        this.votes_gop = votes_gop;
+    public void setGopVotes(double gopVotes) {
+        this.gopVotes = gopVotes;
     }
 
-    public String getTotal_votes() {
-        return total_votes;
+    public double getTotalVotes() {
+        return totalVotes;
     }
 
-    public void setTotal_votes(String total_votes) {
-        this.total_votes = total_votes;
+    public void setTotalVotes(double totalVotes) {
+        this.totalVotes = totalVotes;
     }
 
-    public String getPer_dem() {
-        return per_dem;
+    public ElectionResult(double demVotes, double gopVotes, double totalVotes) {
+        this.demVotes = demVotes;
+        this.gopVotes = gopVotes;
+        this.totalVotes = totalVotes;
     }
 
-    public void setPer_dem(String per_dem) {
-        this.per_dem = per_dem;
-    }
-
-    public String getPer_gop() {
-        return per_gop;
-    }
-
-    public void setPer_gop(String per_gop) {
-        this.per_gop = per_gop;
-    }
-
-    public String getDiff() {
-        return diff;
-    }
-
-    public void setDiff(String diff) {
-        this.diff = diff;
-    }
-
-    public String getPer_point_diff() {
-        return per_point_diff;
-    }
-
-    public void setPer_point_diff(String per_point_diff) {
-        this.per_point_diff = per_point_diff;
-    }
-
-    public String getState_abbr() {
-        return state_abbr;
-    }
-
-    public void setState_abbr(String state_abbr) {
-        this.state_abbr = state_abbr;
-    }
-
-    public String getCounty_name() {
-        return county_name;
-    }
-
-    public void setCounty_name(String county_name) {
-        this.county_name = county_name;
-    }
-
-    public String getCombined_fips() {
-        return combined_fips;
-    }
-
-    public void setCombined_fips(String combined_fips) {
-        this.combined_fips = combined_fips;
-    }
-
-    public ElectionResult(String votes_dem, String votes_gop, String total_votes, String per_dem, String per_gop, String diff, String per_point_diff, String state_abbr, String county_name, String combined_fips) {
-        this.votes_dem = votes_dem;
-        this.votes_gop = votes_gop;
-        this.total_votes = total_votes;
-        this.per_dem = per_dem;
-        this.per_gop = per_gop;
-        this.diff = diff;
-        this.per_point_diff = per_point_diff;
-        this.state_abbr = state_abbr;
-        this.county_name = county_name;
-        this.combined_fips = combined_fips;
-    }
-
-
-
+    @Override
     public String toString() {
-        return votes_dem + ", " + votes_gop + ", " + total_votes + ", " + per_dem + ", " + per_gop + ", " + diff + ", " + per_point_diff + ", " + state_abbr + ", " + county_name + ", " + combined_fips;
+        return super.toString();
     }
 }

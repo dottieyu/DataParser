@@ -29,4 +29,8 @@ public class Utils {
     public static ArrayList<EducationResult> parse2016EducationResults(String s) {
         return null;
     }
+
+    public static ArrayList<EmploymentResult> parse2016EmploymentResults(String s) {
+        return null;
+    }
 }
