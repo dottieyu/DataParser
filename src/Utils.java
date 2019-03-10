@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static java.util.Collections.sort;
