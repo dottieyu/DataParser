@@ -45,9 +45,9 @@ public class County {
         this.employmentResult = employmentResult;
     }
 
-    public County(String name, int fips, ElectionResult electionResult, EducationResult educationResult, EmploymentResult employmentResult) {
+    public County(String name, String fips, ElectionResult electionResult, EducationResult educationResult, EmploymentResult employmentResult) {
         this.name = name;
-        this.fips = fips;
+        this.fips = Integer.parseInt(fips);
         this.electionResult = electionResult;
         this.educationResult = educationResult;
         this.employmentResult = employmentResult;

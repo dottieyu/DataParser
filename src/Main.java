@@ -6,13 +6,14 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) {
-        String str = Utils.readFileAsString("data/2016_Presidential_Results.csv");
-        // System.out.println(str);
+        String str1 = Utils.readFileAsString("data/2016_Presidential_Results.csv");
+        String str2 = Utils.readFileAsString("data/Education.csv");
+        String str3 = Utils.readFileAsString("data/Unemployment.csv");
 
-        ArrayList<ElectionResult> results = Utils.parse2016PresidentialResults(str);
-        for (ElectionResult result : results) {
-            System.out.println(result.toString());
-        }
+        Utils.parse2016PresidentialResults(str1);
+        Utils.parse2016EducationResults(str2);
+        Utils.parse2016EmploymentResults(str3);
 
+        Utils.print();
     }
 }

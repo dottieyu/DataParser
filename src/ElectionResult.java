@@ -27,10 +27,10 @@ public class ElectionResult {
         this.totalVotes = totalVotes;
     }
 
-    public ElectionResult(double demVotes, double gopVotes, double totalVotes) {
-        this.demVotes = demVotes;
-        this.gopVotes = gopVotes;
-        this.totalVotes = totalVotes;
+    public ElectionResult(String demVotes, String gopVotes, String totalVotes) {
+        this.demVotes = Double.parseDouble(demVotes);
+        this.gopVotes = Double.parseDouble(gopVotes);
+        this.totalVotes = Double.parseDouble(totalVotes);
     }
 
     @Override

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class State {
     private String name;
-    private ArrayList<County> counties;
+    private ArrayList<County> counties = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -19,10 +19,13 @@ public class State {
     public void setCounties(ArrayList<County> counties) {
         this.counties = counties;
     }
+    public void setCounties(County county) {
+        this.counties.add(county);
+    }
 
-    public State(String name, ArrayList<County> counties) {
+    public State(String name, County counties) {
         this.name = name;
-        this.counties = counties;
+        this.counties.add(counties);
     }
 
     @Override
