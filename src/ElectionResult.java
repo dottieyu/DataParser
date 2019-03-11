@@ -3,6 +3,12 @@ public class ElectionResult {
     private double gopVotes;
     private double totalVotes;
 
+    public ElectionResult(String demVotes, String gopVotes, String totalVotes) {
+        this.demVotes = Double.parseDouble(demVotes);
+        this.gopVotes = Double.parseDouble(gopVotes);
+        this.totalVotes = Double.parseDouble(totalVotes);
+    }
+
     public double getDemVotes() {
         return demVotes;
     }
@@ -27,14 +33,10 @@ public class ElectionResult {
         this.totalVotes = totalVotes;
     }
 
-    public ElectionResult(String demVotes, String gopVotes, String totalVotes) {
-        this.demVotes = Double.parseDouble(demVotes);
-        this.gopVotes = Double.parseDouble(gopVotes);
-        this.totalVotes = Double.parseDouble(totalVotes);
-    }
-
     @Override
     public String toString() {
         return super.toString();
+        // NEED TO WRITE ACTUAL TOSTRING!!!
+
     }
 }

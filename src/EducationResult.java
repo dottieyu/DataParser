@@ -6,11 +6,11 @@ public class EducationResult {
     private double someCollege;
     private double bachelorsOrMore;
 
-    public EducationResult(double noHS, double onlyHS, double someCollege, double bachelorsOrMore) {
-        this.noHS = noHS;
-        this.onlyHS = onlyHS;
-        this.someCollege = someCollege;
-        this.bachelorsOrMore = bachelorsOrMore;
+    public EducationResult(String noHS, String onlyHS, String someCollege, String bachelorsOrMore) {
+        this.noHS = Double.parseDouble(noHS);
+        this.onlyHS = Double.parseDouble(onlyHS);
+        this.someCollege = Double.parseDouble(someCollege);
+        this.bachelorsOrMore = Double.parseDouble(bachelorsOrMore);
     }
 
     public double getNoHS() {
@@ -48,5 +48,6 @@ public class EducationResult {
     @Override
     public String toString() {
         return super.toString();
+        // NEED TO WRITE ACTUAL TOSTRING!!!
     }
 }

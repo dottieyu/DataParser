@@ -24,9 +24,6 @@ public class Utils {
         return output.toString();
     }
 
-    // To do: Parsing: Split by "\n"; clean(s); split by "," and store in object (should i make a store method?? idk yet)
-    // To do: remove: loop thru data, build arraylist of unwantedIndexes, then run deleteIndexes(s, unwantedIndexes)
-
     public static void parse2016PresidentialResults(String s) {
         String[] rows = s.split("\n");
 
@@ -50,7 +47,6 @@ public class Utils {
         }
     }
 
-
     public static void parse2016EducationResults(String s) {
         String[] rows = s.split("\n");
 
@@ -64,7 +60,10 @@ public class Utils {
     }
 
     private static void store2016EducationResults(String[] vals) {
-
+        EducationResult educationResult = new EducationResult(vals[44], vals[45], vals[46], vals[47]);
+        int stateIndex = states.indexOf(vals[1]);
+        int countyIndex = states.get(stateIndex).getCounties().indexOf(vals[2]);
+        states.get(stateIndex).getCounties().get(countyIndex).setEducationResult(educationResult);
     }
 
     public static void parse2016EmploymentResults(String s) {
@@ -80,7 +79,10 @@ public class Utils {
     }
 
     private static void store2016EmploymentResults(String[] vals) {
-
+        EmploymentResult employmentResult = new EmploymentResult(vals[42], vals[43], vals[44], vals[45]);
+        int stateIndex = states.indexOf(vals[1]);
+        int countyIndex = states.get(stateIndex).getCounties().indexOf(vals[2]);
+        states.get(stateIndex).getCounties().get(countyIndex).setEmploymentResult(employmentResult);
     }
 
     private static void clean(String s) {
@@ -119,7 +121,7 @@ public class Utils {
                 unwantedIndexes.add(i);
             }
         }
-        
+
         deleteIndexes(s, unwantedIndexes);
     }
 
