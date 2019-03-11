@@ -6,6 +6,7 @@ import static java.util.Collections.sort;
 
 public class Utils {
     private static ArrayList<State> states = new ArrayList<>();
+    private static String okLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,";
 
     public static String readFileAsString(String filepath) {
         StringBuilder output = new StringBuilder();
@@ -83,24 +84,59 @@ public class Utils {
     }
 
     private static void clean(String s) {
-        // 1st: remove commas within quotations
-        // 2nd: strip (using strip method) all characters not a thru z, digits, and commas
-        // 3rd: strip all repeat commas
+        removeQuotations(s);
+        removeUnwantedChars(s);
+        removeDuplicateCommasSpaces(s);
     }
 
     private static void removeQuotations(String s) {
+        ArrayList<Integer> unwantedIndexes = new ArrayList<>();
 
+        for (int i = 0; i < s.length(); i++) {
+            int start = s.indexOf("\"", i);
+            int end = s.indexOf("\"", start);
+
+            if (start == -1 || end == -1 ) {break;}
+            else {
+                unwantedIndexes.add(start);
+                for (int j = start; j < end; j++) {
+                    if (s.substring(j, j + 1).equals(",")) {
+                        unwantedIndexes.add(j);
+                    }
+                }
+                unwantedIndexes.add(end);
+                i = end;
+            }
+        }
+            deleteIndexes(s, unwantedIndexes);
     }
 
     private static void removeUnwantedChars(String s) {
+        ArrayList<Integer> unwantedIndexes = new ArrayList<>();
 
+        for (int i = 0; i < s.length(); i++) {
+            if (!okLetters.contains(s.substring(i, i+1))) {
+                unwantedIndexes.add(i);
+            }
+        }
+        
+        deleteIndexes(s, unwantedIndexes);
     }
 
-    private static void removeDuplicateCommas(String s) {
-
+    private static void removeDuplicateCommasSpaces(String s) {
+        ArrayList<Integer> unwantedIndexes = new ArrayList<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.substring(i, i+1).equals(",") && s.substring(i-1, i).equals(",")) {
+                unwantedIndexes.add(i);
+            } else if (s.substring(i, i+1).equals(" ") && s.substring(i-1, i).equals(" ")) {
+                unwantedIndexes.add(i);
+            }
+        }
+        deleteIndexes(s, unwantedIndexes);
     }
 
     private static void deleteIndexes(String s, ArrayList<Integer> unwantedIndexes) {
+        sort(unwantedIndexes);
         String output = s.substring(0, unwantedIndexes.get(0));
 
         for (int i = 0; i < unwantedIndexes.size() - 1; i++) {
